@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import './form.module.css';
+import styles from './form.module.css'; 
 
 interface FormData {
   task: string;
@@ -15,8 +15,6 @@ const SimpleForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
- 
- 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,41 +22,42 @@ const SimpleForm: React.FC = () => {
     setFormData({ task: '', action: '' });
   };
 
-
   return (
-    <div>
-      <h1>Create New Task</h1>
+    <div className={styles.formContainer}>
+      <h1 className={styles.heading}>Create New Task</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="task">Task Name:</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="task" className={styles.label}>Task Name:</label>
           <input
             type="text"
             id="task"
             name="task"
             value={formData.task}
             onChange={handleChange}
+            className={styles.inputField}
             required
           />
         </div>
-        <div>
-          <label htmlFor="action">Action:</label>
+        <div className={styles.inputGroup}>
+          <label htmlFor="action" className={styles.label}>Action:</label>
           <input
-            type="action"
+            type="text"
             id="action"
             name="action"
             value={formData.action}
             onChange={handleChange}
+            className={styles.inputField}
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className={styles.submitButton}>Submit</button>
       </form>
 
       {submittedData && (
         <div>
-          <h2>Time To Get To Work:</h2>
-          <p>Task Name: {submittedData.task}</p>
-          <p>Action: {submittedData.action}</p>
+          <h2 className={styles.submittedDataHeading}>Time To Get To Work:</h2>
+          <p className={styles.submittedDataText}>Task Name: {submittedData.task}</p>
+          <p className={styles.submittedDataText}>Action: {submittedData.action}</p>
         </div>
       )}
     </div>

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import react, { useState } from "react";
+import React, { useState } from "react";
 import SimpleForm from "./components/Form/Form";
+
 
 
 export default function Home() {
@@ -11,6 +12,9 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
        <SimpleForm />
+
+       {/* <TaskList />  */}
+
       </main>
       <footer className={styles.footer}>
         
