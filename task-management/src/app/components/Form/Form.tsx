@@ -30,7 +30,7 @@ const SimpleForm: React.FC = () => {
       <h1>Basic Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="task">Task:</label>
+          <label htmlFor="task">Task Name:</label>
           <input
             type="text"
             id="task"
@@ -56,8 +56,8 @@ const SimpleForm: React.FC = () => {
 
       {submittedData && (
         <div>
-          <h2>Tasks:</h2>
-          <p>Task: {submittedData.task}</p>
+          <h2>Time To Get To Work:</h2>
+          <p>Task Name: {submittedData.task}</p>
           <p>Action: {submittedData.action}</p>
         </div>
       )}
