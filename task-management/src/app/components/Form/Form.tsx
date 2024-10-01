@@ -27,7 +27,7 @@ const SimpleForm: React.FC = () => {
 
   return (
     <div>
-      <h1>Basic Form</h1>
+      <h1>Create New Task</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="task">Task Name:</label>
