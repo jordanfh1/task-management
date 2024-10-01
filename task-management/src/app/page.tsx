@@ -1,11 +1,18 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import react, { useState } from "react";
+import SimpleForm from "./components/Form/Form";
+
 
 export default function Home() {
 
-  const [task, setTask] = useState("");
-  const [formData, setFormData] = useState({});
+
+  
+interface FormData {
+  name: string;
+  email: string;
+}
+
 
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -16,19 +23,13 @@ export default function Home() {
   }
 
 
+  
+
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <fieldset>
-            <label>
-              <span>Task</span>
-              <input type="text" />
-            </label>
-          </fieldset>
-        </form>
-        
+       <SimpleForm />
       </main>
       <footer className={styles.footer}>
         
