@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import './form.module.css';
 
 interface FormData {
-  name: string;
-  email: string;
+  task: string;
+  action: string;
 }
 
 const SimpleForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({ name: '', email: '' });
+  const [formData, setFormData] = useState<FormData>({ task: '', action: '' });
   const [submittedData, setSubmittedData] = useState<FormData | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,31 +21,32 @@ const SimpleForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmittedData(formData);
-    setFormData({ name: '', email: '' });
+    setFormData({ task: '', action: '' });
   };
+
 
   return (
     <div>
       <h1>Basic Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="task">Task:</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="task"
+            name="task"
+            value={formData.task}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="action">Action:</label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="action"
+            id="action"
+            name="action"
+            value={formData.action}
             onChange={handleChange}
             required
           />
@@ -55,9 +56,9 @@ const SimpleForm: React.FC = () => {
 
       {submittedData && (
         <div>
-          <h2>Submitted Data:</h2>
-          <p>Name: {submittedData.name}</p>
-          <p>Email: {submittedData.email}</p>
+          <h2>Tasks:</h2>
+          <p>Task: {submittedData.task}</p>
+          <p>Action: {submittedData.action}</p>
         </div>
       )}
     </div>
