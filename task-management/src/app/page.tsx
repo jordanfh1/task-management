@@ -13,8 +13,7 @@ export default function Home() {
       <main className={styles.main}>
        <SimpleForm />
 
-       {/* <TaskList />  */}
-
+        
       </main>
       <footer className={styles.footer}>
         
