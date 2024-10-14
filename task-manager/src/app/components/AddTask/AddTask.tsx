@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
+import TaskList from '../TaskList/TaskList';
 import styles from './AddTask.module.css'
 
 interface Task {
@@ -24,9 +25,10 @@ const AddTask: React.FC = () => {
     
 
             return(
-         <button className={styles.button}>
-        +
-        </button>
+                <div>
+                <button onClick={addTask}>Add Task</button>
+                          {showTaskList && <TaskList tasks={tasks} />}
+              </div>
     )
 } 
 
